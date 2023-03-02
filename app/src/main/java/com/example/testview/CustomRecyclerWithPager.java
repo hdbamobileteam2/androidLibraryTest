@@ -1,11 +1,13 @@
 package com.example.testview;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
@@ -23,6 +25,7 @@ public class CustomRecyclerWithPager extends RelativeLayout {
     /** Core Components*/
     RecyclerView recyclerView;
     IndefinitePagerIndicator indefinitePagerIndicator;
+    CustomRecyclerViewAdapter customRecyclerViewAdapter;
 
     public CustomRecyclerWithPager(Context context) {
         super(context);
@@ -58,6 +61,10 @@ public class CustomRecyclerWithPager extends RelativeLayout {
 
         SnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
+
+        customRecyclerViewAdapter = new CustomRecyclerViewAdapter(getContext());
+        recyclerView.setAdapter(customRecyclerViewAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
 
         arr.recycle();
     }
