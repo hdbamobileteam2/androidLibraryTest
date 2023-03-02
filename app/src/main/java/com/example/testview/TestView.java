@@ -11,10 +11,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class TestView extends RelativeLayout {
+public class TestView extends ConstraintLayout {
 
     /** Core Items*/
     private Context mContext;
