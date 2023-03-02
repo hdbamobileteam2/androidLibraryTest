@@ -78,10 +78,4 @@ public class CustomRecyclerWithPager extends ConstraintLayout {
         recyclerView.setAdapter(customRecyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
     }
-
-    @Nullable
-    @Override
-    public View getChildAt(int position) {
-        return null;
-    }
 }
