@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +15,7 @@ import androidx.recyclerview.widget.SnapHelper;
 
 import com.rbrooks.indefinitepagerindicator.IndefinitePagerIndicator;
 
-public class CustomRecyclerWithPager extends RelativeLayout {
+public class CustomRecyclerWithPager extends ConstraintLayout {
 
     /** Core Items*/
     private Context mContext;
