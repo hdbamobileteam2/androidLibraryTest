@@ -5,4 +5,7 @@
         <attr name="gradient" format="reference"/>
         <attr name="text" format="string"/>
     </declare-styleable>
+    <declare-styleable name="CustomRecyclerWithPager">
+
+    </declare-styleable>
 </resources>

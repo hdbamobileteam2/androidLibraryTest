@@ -3,4 +3,9 @@
     <string name="hdb_design_system_component">HDB Design System Component</string>
     <string name="cut_button">cut button</string>
     <string name="logo">logo</string>
+    <string name="ar_ease_welcome_showroom">Welcome to the virtual \n EASE experience</string>
+    <string name="ar_ease_intro_slider1_title">Virtual Selection</string>
+    <string name="ar_ease_intro_slider1_caption">Browse through Enhancement for Active Seniors (EASE) improvement items virtually</string>
+    <string name="ar_ease_intro_slider2_title">Grab Bar and Ramp</string>
+    <string name="ar_ease_intro_slider2_caption">Check out how the virtual grab bars and ramps appear in your home</string>
 </resources>
