@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
@@ -76,5 +77,11 @@ public class CustomRecyclerWithPager extends ConstraintLayout {
         customRecyclerViewAdapter = new CustomRecyclerViewAdapter(getContext(), imageContent, imageTitle, images);
         recyclerView.setAdapter(customRecyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+    }
+
+    @Nullable
+    @Override
+    public View getChildAt(int position) {
+        return null;
     }
 }

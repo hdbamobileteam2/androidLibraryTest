@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -107,6 +108,12 @@ public class TestView extends ConstraintLayout {
 
     public void setText(String text){
         textView.setText(text);
+    }
+
+    @Nullable
+    @Override
+    public View getChildAt(int position) {
+        return null;
     }
 
 //    public void setScaleType(ImageView.ScaleType scaleType){
