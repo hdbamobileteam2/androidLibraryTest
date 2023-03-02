@@ -2,6 +2,7 @@ package com.example.testview;
 
 import android.content.Context;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecyclerViewAdapter.MyViewHolder> implements View.OnTouchListener {
 
@@ -21,25 +23,27 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
     private int[] myImageList = new int[]{R.drawable.easeintro1enzh_svg, R.drawable.easeintro2_svg};
     private String[] imageContent={};
     private String[] imageTitle={};
+    private List<Drawable> images;
 
     Context ctx;
-    ArrayList<ARLayoutModel> imageModelArrayList;
 
     public CustomRecyclerViewAdapter(Context ctx){
         this.ctx = ctx;
         inflater = LayoutInflater.from(ctx);
+        this.images = null;
         imageTitle = new String[] {ctx.getResources().getString(R.string.ar_ease_intro_slider1_title), ctx.getResources().getString(R.string.ar_ease_intro_slider2_title)};
         imageContent = new String[] {ctx.getResources().getString(R.string.ar_ease_intro_slider1_caption), ctx.getResources().getString(R.string.ar_ease_intro_slider2_caption)};
         //  this.imageModelArrayList = imageModelArrayList;
     }
 
-    public CustomRecyclerViewAdapter(Context ctx, ArrayList<ARLayoutModel> imageModelArrayList){
+    public CustomRecyclerViewAdapter(Context ctx, String[] imageContent, String[] imageTitle, List<Drawable> images){
         this.ctx = ctx;
         inflater = LayoutInflater.from(ctx);
-        this.imageModelArrayList = null;
-        imageTitle = new String[] {ctx.getResources().getString(R.string.ar_ease_intro_slider1_title), ctx.getResources().getString(R.string.ar_ease_intro_slider2_title)};
-        imageContent = new String[] {ctx.getResources().getString(R.string.ar_ease_intro_slider1_caption), ctx.getResources().getString(R.string.ar_ease_intro_slider2_caption)};
+        this.imageTitle = imageTitle;
+        this.imageContent = imageContent;
+        this.images = images;
     }
+
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -75,9 +79,12 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
         int width = size.x;
         int height = size.y;
 
-        myImageList = new int[]{R.drawable.easeintro1enzh_svg, R.drawable.easeintro2_svg};
-        holder.imageView.setImageResource(myImageList[position]);
 
+        if(images != null){
+            holder.imageView.setImageDrawable(images.get(position));
+        }else{
+            holder.imageView.setImageResource(myImageList[position]);
+        }
         holder.content.setText(description);
         holder.tutorialTitle.setText(title);
     }
@@ -91,8 +98,8 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
 
     @Override
     public int getItemCount() {
-        if(imageModelArrayList != null){
-            return imageModelArrayList.size();
+        if(images != null){
+            return images.size();
         }else{
             return myImageList.length;
         }

@@ -3,6 +3,7 @@ package com.example.testview;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
 import com.rbrooks.indefinitepagerindicator.IndefinitePagerIndicator;
+
+import java.util.List;
 
 public class CustomRecyclerWithPager extends ConstraintLayout {
 
@@ -55,6 +58,7 @@ public class CustomRecyclerWithPager extends ConstraintLayout {
 
         TypedArray arr = mContext.obtainStyledAttributes(attrs,R.styleable.CustomRecyclerWithPager,
                 styleAttr,0);
+        arr.recycle();
 
         recyclerView = findViewById(R.id.recyclerView);
         indefinitePagerIndicator = findViewById(R.id.recyclerview_pager_indicator);
@@ -66,7 +70,11 @@ public class CustomRecyclerWithPager extends ConstraintLayout {
         customRecyclerViewAdapter = new CustomRecyclerViewAdapter(getContext());
         recyclerView.setAdapter(customRecyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+    }
 
-        arr.recycle();
+    public void setUpAdapter(String[] imageContent, String[] imageTitle, List<Drawable> images) {
+        customRecyclerViewAdapter = new CustomRecyclerViewAdapter(getContext(), imageContent, imageTitle, images);
+        recyclerView.setAdapter(customRecyclerViewAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
     }
 }
