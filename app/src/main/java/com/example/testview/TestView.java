@@ -1,7 +1,9 @@
 package com.example.testview;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.AttributeSet;
@@ -13,6 +15,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.core.widget.ImageViewCompat;
+import androidx.core.widget.TextViewCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -32,9 +38,12 @@ public class TestView extends ConstraintLayout {
 
     /** Attributes **/
     int imageFileId;
+    int imageTintColorResource;
+    int imageTintColor;
     Drawable imageFile;
     Drawable gradient;
     String text;
+    int textStyleRes;
 
     public TestView(Context context) {
         super(context);
@@ -62,29 +71,35 @@ public class TestView extends ConstraintLayout {
         inflate(mContext, R.layout.testview_layout,this);
 
         TypedArray arr = mContext.obtainStyledAttributes(attrs,R.styleable.TestView,
-                styleAttr,0);
+                styleAttr,R.style.Widget_AppTheme_TestView);
 
-        imageFileId=arr.getResourceId(R.styleable.TestView_image, -1);
-        gradient=arr.getDrawable(R.styleable.TestView_gradient);
-        text=arr.getString(R.styleable.TestView_text);
-
-        textView=(TextView)findViewById(R.id.textView);
-        image=(ImageView)findViewById(R.id.wall);
-        alphaLayer= findViewById(R.id.view);
+        textView = findViewById(R.id.textView);
+        image = findViewById(R.id.wall);
+        alphaLayer = findViewById(R.id.view);
         floatingActionButton = findViewById(R.id.floatingActionButton);
 
+        imageFileId = arr.getResourceId(R.styleable.TestView_image, -1);
         if(imageFileId!=-1) {
             imageFile = AppCompatResources.getDrawable(mContext, imageFileId);
             image.setImageDrawable(imageFile);
         }
 
+        imageTintColorResource = arr.getColor(R.styleable.TestView_imageTintColor, getResources().getColor(R.color.white));
+        imageTintColor= ContextCompat.getColor(mContext, imageTintColorResource);
+        ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(imageTintColor));
+
+        gradient=arr.getDrawable(R.styleable.TestView_gradient);
         if(gradient!=null){
             alphaLayer.setBackground(gradient);
         }
 
+        text=arr.getString(R.styleable.TestView_text);
         if(text!=null){
             textView.setText(text);
         }
+
+        textStyleRes = arr.getResourceId(R.styleable.TestView_textAppearance, androidx.appcompat.R.style.TextAppearance_AppCompat);
+        TextViewCompat.setTextAppearance(textView, textStyleRes);
 
         floatingActionButton.setOnClickListener(view -> {
             setText("Ouch, don't cut me!");

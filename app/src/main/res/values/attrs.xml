@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="AppTheme">
+        <attr name="testViewStyle" format="reference"/>
+    </declare-styleable>
     <declare-styleable name="TestView">
         <attr name="image" format="reference"/>
+        <attr name="imageTintColor" format="color"/>
         <attr name="gradient" format="reference"/>
         <attr name="text" format="string"/>
+        <attr name="textAppearance" format="reference"/>
     </declare-styleable>
     <declare-styleable name="CustomRecyclerWithPager">
 

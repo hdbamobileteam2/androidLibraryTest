@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.AppTheme.TestView" parent="">
+        <item name="imageTintColor">@color/teal_200</item>
+    </style>
+    <style name="Widget.AppTheme.TestView.Warning" parent="">
+        <item name="imageTintColor">@color/red</item>
+    </style>
+    <style name="TextAppearance.AppTheme.Body" parent="android:TextAppearance">
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="testViewStyle">@style/Widget.AppTheme.TestView</item>
+    </style>
+</resources>
