@@ -2,15 +2,25 @@
 <resources>
     <style name="Widget.AppTheme.TestView" parent="">
         <item name="imageTintColor">@color/teal_200</item>
+        <item name="textAppearance">@style/TextAppearance.AppTheme.Body</item>
     </style>
     <style name="Widget.AppTheme.TestView.Warning" parent="">
         <item name="imageTintColor">@color/red</item>
+        <item name="textAppearance">@style/TextAppearance.AppTheme.Body.Warning</item>
     </style>
     <style name="TextAppearance.AppTheme.Body" parent="android:TextAppearance">
         <item name="android:lineSpacingMultiplier">0</item>
         <item name="android:textSize">16sp</item>
         <item name="android:lineSpacingExtra">16sp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="TextAppearance.AppTheme.Body.Warning" parent="android:TextAppearance">
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/red</item>
     </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="testViewStyle">@style/Widget.AppTheme.TestView</item>

@@ -39,7 +39,6 @@ public class TestView extends ConstraintLayout {
     /** Attributes **/
     int imageFileId;
     int imageTintColorResource;
-    int imageTintColor;
     Drawable imageFile;
     Drawable gradient;
     String text;
@@ -84,9 +83,10 @@ public class TestView extends ConstraintLayout {
             image.setImageDrawable(imageFile);
         }
 
-        imageTintColorResource = arr.getColor(R.styleable.TestView_imageTintColor, getResources().getColor(R.color.white));
-        imageTintColor= ContextCompat.getColor(mContext, imageTintColorResource);
-        ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(imageTintColor));
+        imageTintColorResource = arr.getResourceId(R.styleable.TestView_imageTintColor, -1);
+        if (imageTintColorResource!=-1) {
+            ImageViewCompat.setImageTintList(image,AppCompatResources.getColorStateList(mContext, imageTintColorResource));
+        }
 
         gradient=arr.getDrawable(R.styleable.TestView_gradient);
         if(gradient!=null){
@@ -123,12 +123,6 @@ public class TestView extends ConstraintLayout {
 
     public void setText(String text){
         textView.setText(text);
-    }
-
-    @Nullable
-    @Override
-    public View getChildAt(int position) {
-        return null;
     }
 
 //    public void setScaleType(ImageView.ScaleType scaleType){
