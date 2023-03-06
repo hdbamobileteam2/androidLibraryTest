@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="AppTheme">
         <attr name="testViewStyle" format="reference"/>
+        <attr name="customRecyclerWithPagerStyle" format="reference"/>
     </declare-styleable>
     <declare-styleable name="TestView">
         <attr name="image" format="reference"/>
@@ -11,6 +12,7 @@
         <attr name="textAppearance" format="reference"/>
     </declare-styleable>
     <declare-styleable name="CustomRecyclerWithPager">
-
+        <attr name="crvpTextAppearance" format="reference"/>
+        <attr name="crvpTitleAppearance" format="reference"/>
     </declare-styleable>
 </resources>

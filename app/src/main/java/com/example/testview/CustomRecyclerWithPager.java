@@ -32,6 +32,9 @@ public class CustomRecyclerWithPager extends ConstraintLayout {
     IndefinitePagerIndicator indefinitePagerIndicator;
     CustomRecyclerViewAdapter customRecyclerViewAdapter;
 
+    int textStyleRes;
+    int titleStyleRes;
+
     public CustomRecyclerWithPager(Context context) {
         super(context);
         this.mContext=context;
@@ -58,8 +61,9 @@ public class CustomRecyclerWithPager extends ConstraintLayout {
         inflate(mContext, R.layout.custom_recycler_with_pager_layout,this);
 
         TypedArray arr = mContext.obtainStyledAttributes(attrs,R.styleable.CustomRecyclerWithPager,
-                styleAttr,0);
-        arr.recycle();
+                styleAttr, R.style.Widget_AppTheme_CustomRecyclerWithPager);
+        textStyleRes = arr.getResourceId(R.styleable.CustomRecyclerWithPager_crvpTextAppearance, androidx.appcompat.R.style.TextAppearance_AppCompat);
+        titleStyleRes = arr.getResourceId(R.styleable.CustomRecyclerWithPager_crvpTitleAppearance, androidx.appcompat.R.style.TextAppearance_AppCompat);
 
         recyclerView = findViewById(R.id.recyclerView);
         indefinitePagerIndicator = findViewById(R.id.recyclerview_pager_indicator);
@@ -68,13 +72,15 @@ public class CustomRecyclerWithPager extends ConstraintLayout {
         SnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
 
-        customRecyclerViewAdapter = new CustomRecyclerViewAdapter(getContext());
+        customRecyclerViewAdapter = new CustomRecyclerViewAdapter(getContext(), textStyleRes, titleStyleRes);
         recyclerView.setAdapter(customRecyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        arr.recycle();
     }
 
     public void setUpAdapter(String[] imageContent, String[] imageTitle, List<Drawable> images) {
-        customRecyclerViewAdapter = new CustomRecyclerViewAdapter(getContext(), imageContent, imageTitle, images);
+        customRecyclerViewAdapter = new CustomRecyclerViewAdapter(getContext(), textStyleRes, titleStyleRes, imageContent, imageTitle, images);
         recyclerView.setAdapter(customRecyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
     }

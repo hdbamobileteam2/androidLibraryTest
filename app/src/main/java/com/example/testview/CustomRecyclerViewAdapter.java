@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecyclerViewAdapter.MyViewHolder> implements View.OnTouchListener {
@@ -24,30 +23,36 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
     private String[] imageContent={};
     private String[] imageTitle={};
     private List<Drawable> images;
+    private int textStyleRes;
+    private int titleStyleRes;
 
     Context ctx;
 
-    public CustomRecyclerViewAdapter(Context ctx){
+    public CustomRecyclerViewAdapter(Context ctx, int textStyleRes, int titleStyleRes){
         this.ctx = ctx;
         inflater = LayoutInflater.from(ctx);
         this.images = null;
         imageTitle = new String[] {ctx.getResources().getString(R.string.ar_ease_intro_slider1_title), ctx.getResources().getString(R.string.ar_ease_intro_slider2_title)};
         imageContent = new String[] {ctx.getResources().getString(R.string.ar_ease_intro_slider1_caption), ctx.getResources().getString(R.string.ar_ease_intro_slider2_caption)};
         //  this.imageModelArrayList = imageModelArrayList;
+        this.textStyleRes = textStyleRes;
+        this.titleStyleRes = titleStyleRes;
     }
 
-    public CustomRecyclerViewAdapter(Context ctx, String[] imageContent, String[] imageTitle, List<Drawable> images){
+    public CustomRecyclerViewAdapter(Context ctx, int textStyleRes, int titleStyleRes, String[] imageContent, String[] imageTitle, List<Drawable> images){
         this.ctx = ctx;
         inflater = LayoutInflater.from(ctx);
         this.imageTitle = imageTitle;
         this.imageContent = imageContent;
         this.images = images;
+        this.textStyleRes = textStyleRes;
+        this.titleStyleRes = titleStyleRes;
     }
 
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.ar_landing_page_adapter_new, parent, false);
+        View view = inflater.inflate(R.layout.recycler_view_adapter, parent, false);
         MyViewHolder holder = new MyViewHolder(view);
 
         return holder;
@@ -87,6 +92,8 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
         }
         holder.content.setText(description);
         holder.tutorialTitle.setText(title);
+        holder.content.setTextAppearance(textStyleRes);
+        holder.tutorialTitle.setTextAppearance(titleStyleRes);
     }
 
     @Override

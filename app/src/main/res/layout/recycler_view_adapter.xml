@@ -29,15 +29,11 @@
             android:id="@+id/arTutorialTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/content"
             android:layout_weight=".1"
             android:gravity="center"
             android:layout_marginTop="@dimen/button_text_padding"
             android:layout_marginLeft="@dimen/button_text_padding"
             android:layout_marginRight="@dimen/button_text_padding"
-            android:textColor="@color/black"
-            android:textSize="@dimen/ar_sub_label"
-            android:textStyle="bold"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -48,9 +44,6 @@
             android:layout_marginLeft="@dimen/button_text_padding"
             android:layout_marginRight="@dimen/button_text_padding"
             android:gravity="center_horizontal"
-            android:textColor="@color/grey"
-            android:textSize="@dimen/ar_sub_label"
-            android:scrollbars="vertical"
             tools:ignore="HardcodedText" />
     </LinearLayout>
 
