@@ -16,6 +16,14 @@
         <item name="crvpTextAppearance">@style/TextAppearance.AppTheme.Body.Warning</item>
         <item name="crvpTitleAppearance">@style/TextAppearance.AppTheme.Title.Warning</item>
     </style>
+    <style name="Widget.AppTheme.CustomButton" parent="">
+        <item name="customButtonBackgroundColor">@color/teal_200</item>
+        <item name="customButtonTextAppearance">@style/TextAppearance.AppTheme.ButtonText</item>
+    </style>
+    <style name="Widget.AppTheme.CustomButton.Warning" parent="">
+        <item name="customButtonBackgroundColor">@color/red</item>
+        <item name="customButtonTextAppearance">@style/TextAppearance.AppTheme.ButtonText.Warning</item>
+    </style>
     <style name="TextAppearance.AppTheme.Body" parent="android:TextAppearance">
         <item name="android:lineSpacingMultiplier">0</item>
         <item name="android:textSize">16sp</item>
@@ -44,7 +52,23 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/red</item>
     </style>
+    <style name="TextAppearance.AppTheme.ButtonText" parent="android:TextAppearance">
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="TextAppearance.AppTheme.ButtonText.Warning" parent="android:TextAppearance">
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="testViewStyle">@style/Widget.AppTheme.TestView</item>
+        <item name="customRecyclerWithPagerStyle">@style/Widget.AppTheme.CustomRecyclerWithPager</item>
+        <item name="customButtonStyle">@style/Widget.AppTheme.CustomRecyclerWithPager</item>
     </style>
 </resources>

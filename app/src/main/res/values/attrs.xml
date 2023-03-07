@@ -3,6 +3,7 @@
     <declare-styleable name="AppTheme">
         <attr name="testViewStyle" format="reference"/>
         <attr name="customRecyclerWithPagerStyle" format="reference"/>
+        <attr name="customButtonStyle" format="reference"/>
     </declare-styleable>
     <declare-styleable name="TestView">
         <attr name="image" format="reference"/>
@@ -14,5 +15,10 @@
     <declare-styleable name="CustomRecyclerWithPager">
         <attr name="crvpTextAppearance" format="reference"/>
         <attr name="crvpTitleAppearance" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="CustomButton">
+        <attr name="customButtonText" format="string"/>
+        <attr name="customButtonTextAppearance" format="reference"/>
+        <attr name="customButtonBackgroundColor" format="color"/>
     </declare-styleable>
 </resources>
