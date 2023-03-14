@@ -19,6 +19,7 @@ public class SampleIssueRegistry extends IssueRegistry {
         list.addAll(Collections.singletonList(CustomButtonDetector.wrongMarginIssue));
         list.addAll(Collections.singletonList(CustomButtonDetector.noMarginIssue));
         list.addAll(Collections.singletonList(CustomButtonDetector.redundantMarginIssue));
+        list.addAll(Collections.singletonList(CustomButtonDetector.missingContentDescriptionIssue));
         list.addAll(Collections.singletonList(SampleCodeDetector.javaLintIssue));
         list.addAll(Collections.singletonList(SampleMethodDetector.lintMethodIssue));
         list.addAll(Collections.singletonList(SampleMethodDetector.lintMethodParameterIssue));
