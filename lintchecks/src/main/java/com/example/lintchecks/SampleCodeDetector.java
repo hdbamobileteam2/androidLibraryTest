@@ -28,13 +28,15 @@ public class SampleCodeDetector extends Detector implements Detector.UastScanner
         return new UElementHandler() {
             @Override
             public void visitLiteralExpression(@NotNull ULiteralExpression node) {
-                String string = node.getValue().toString();
-                if (string.contains("lint")) {
-                    context.report(
-                            javaLintIssue, node, context.getLocation(node),
-                            "This code mentions `lint`: **Congratulations!!!**",
-                            createFix()
-                    );
+                if (node.getValue() != null) {
+                    String string = node.getValue().toString();
+                    if (string.contains("lint")) {
+                        context.report(
+                                javaLintIssue, node, context.getLocation(node),
+                                "This code mentions `lint`: **Congratulations!!!**",
+                                createFix()
+                        );
+                    }
                 }
             }
         };
