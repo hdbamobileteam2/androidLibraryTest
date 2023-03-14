@@ -29,7 +29,7 @@ public class CustomButtonDetector extends Detector implements Detector.XmlScanne
     @Nullable
     @Override
     public Collection<String> getApplicableElements() {
-        return Collections.singletonList("com.example.linttest.CustomButton");
+        return Collections.singletonList("com.example.testview.CustomButton");
     }
 
     @Override
@@ -89,7 +89,7 @@ public class CustomButtonDetector extends Detector implements Detector.XmlScanne
                     LintFix.create()
                             .replace()
                             .text(element.getNodeValue())
-                            .with("com.example.linttest.CustomButton\tandroid:layout_marginHorizontal=\"5dp\"")
+                            .with("com.example.testview.CustomButton\tandroid:layout_marginHorizontal=\"5dp\"")
                             .build());
         }
         if (!text) {
@@ -99,7 +99,7 @@ public class CustomButtonDetector extends Detector implements Detector.XmlScanne
                     LintFix.create()
                             .replace()
                             .text(element.getNodeValue())
-                            .with("com.example.linttest.CustomButton\tandroid:text=\"Sample\"")
+                            .with("com.example.testview.CustomButton\tandroid:text=\"Sample\"")
                             .build());
         }
     }

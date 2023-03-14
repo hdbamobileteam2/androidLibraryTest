@@ -64,7 +64,7 @@ public class ButtonDetector extends Detector implements Detector.XmlScanner {
         public static String USAGES = "Try to use the team custom view";
         public static String EXPLANATION = "The team is trying to use a custom view in place of" +
                 " the normal android button widget, Custom View ==> CustomButton";
-        public static String CUSTOM_VIEW = "com.example.linttest.CustomButton";
+        public static String CUSTOM_VIEW = "com.example.testview.CustomButton";
     }
 
 

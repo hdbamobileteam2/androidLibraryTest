@@ -49,7 +49,7 @@ public class SampleCodeDetector extends Detector implements Detector.UastScanner
     }
 
     public static Issue javaLintIssue = Issue.create(
-            "SampleId",
+            "SampleLintId",
             "Lint Mentions",
             "This check highlights string literals in code which mentions the word `lint`. Blah blah blah. Another paragraph here.",
             Category.MESSAGES,
