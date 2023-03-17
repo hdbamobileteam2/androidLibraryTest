@@ -87,9 +87,7 @@ public class CustomButtonDetector extends Detector implements Detector.XmlScanne
                     context.getLocation(element, LocationType.NAME),
                     "Missing margins",
                     LintFix.create()
-                            .replace()
-                            .text(element.getNodeValue())
-                            .with("com.example.testview.CustomButton\tandroid:layout_marginHorizontal=\"5dp\"")
+                            .set("http://schemas.android.com/apk/res/android","layout_marginHorizontal","5dp")
                             .build());
         }
         if (!text) {
@@ -97,9 +95,7 @@ public class CustomButtonDetector extends Detector implements Detector.XmlScanne
                     context.getLocation(element, LocationType.NAME),
                     "Missing content description",
                     LintFix.create()
-                            .replace()
-                            .text(element.getNodeValue())
-                            .with("com.example.testview.CustomButton\tandroid:text=\"Sample\"")
+                            .set("http://schemas.android.com/apk/res/android","text","Sample")
                             .build());
         }
     }
@@ -150,9 +146,7 @@ public class CustomButtonDetector extends Detector implements Detector.XmlScanne
                 context.getLocation(item),
                 "Redundant margins",
                 LintFix.create()
-                        .replace()
-                        .text(item.getNodeName()+"=\""+item.getNodeValue()+"\"")
-                        .with("")
+                        .unset("http://schemas.android.com/apk/res/android", item.getLocalName())
                         .build());
     }
 
